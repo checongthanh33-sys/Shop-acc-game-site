@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Nexus Gaming Store</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;color:#fff}
+body{background:#0b0914}
+header{display:flex;justify-content:space-between;padding:12px 5%;background:#000;border-bottom:1px solid #7b2cbf;align-items:center}
+.logo{font-size:20px;font-weight:900;font-style:italic;text-shadow:0 0 10px #c77dff}
+.logo span{color:#c77dff}
+.hr{display:flex;gap:8px;align-items:center;font-size:13px}
+.box{background:#161324;padding:6px 12px;border-radius:5px;border:1px solid #7b2cbf}
+.gold{color:#ffb703;font-weight:bold}
+.btn{padding:7px 14px;border:none;border-radius:5px;cursor:pointer;font-weight:bold;font-size:13px}
+.bp{background:linear-gradient(45deg,#7b2cbf,#c77dff);color:#fff}
+.bd{background:#e63946;color:#fff}
+nav{display:flex;justify-content:center;gap:20px;background:#161324;padding:10px;border-bottom:1px solid #7b2cbf;font-size:14px}
+nav a{color:#ccc;text-decoration:none;cursor:pointer}
+nav a:hover{color:#c77dff}
+.banner{text-align:center;padding:30px;background:linear-gradient(0deg,#0b0914,#2a1649);border-bottom:2px solid #9d4edd}
+.banner h1{font-size:36px;font-style:italic;text-shadow:0 0 20px #9d4edd}
+.wrap{display:grid;grid-template-columns:180px 1fr 260px;gap:15px;padding:20px 5%}
+.side .it{background:#161324;padding:10px;margin-bottom:6px;border-radius:5px;cursor:pointer;border-left:3px solid transparent;font-size:13px}
+.side .it:hover,.side .it.on{border-left-color:#c77dff;background:#2a1649}
+.tt{font-size:15px;font-weight:bold;color:#c77dff;margin-bottom:10px;text-transform:uppercase}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:10px}
+.card{background:#161324;padding:12px;border-radius:8px;text-align:center;border:1px solid #7b2cbf}
+.card:hover{box-shadow:0 0 15px #7b2cbf}
+.card i.ic{font-size:36px;color:#c77dff;margin-bottom:8px}
+.card .n{font-size:12px;font-weight:bold;margin-bottom:4px}
+.card .p{color:#ffb703;font-size:15px;font-weight:900;margin-bottom:8px}
+.card ul{list-style:none;font-size:11px;color:#aaa;text-align:left;margin-bottom:8px}
+.card ul i{color:#2ec4b6;margin-right:4px}
+.tb{background:#161324;padding:12px;border-radius:8px;margin-bottom:10px;border:1px solid #7b2cbf}
+.tb input,.tb select{width:100%;padding:7px;margin-bottom:6px;background:#0b0914;border:1px solid #7b2cbf;color:#fff;border-radius:4px;font-size:13px}
+.tb button{width:100%}
+.mo{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.85);z-index:9;justify-content:center;align-items:center}
+.mc{background:#161324;padding:20px;border-radius:10px;width:320px;border:1px solid #c77dff}
+.mc input{width:100%;padding:8px;margin-bottom:8px;background:#0b0914;border:1px solid #7b2cbf;color:#fff;border-radius:4px}
+.cl{float:right;cursor:pointer;color:#e63946;font-size:20px;font-weight:bold}
+table{width:100%;border-collapse:collapse;margin-top:10px;font-size:12px}
+th,td{padding:6px;border:1px solid #7b2cbf;text-align:left}
+th{background:#2a1649}
+.hd{display:none!important}
+footer{text-align:center;padding:15px;color:#888;border-top:1px solid #7b2cbf;margin-top:20px;font-size:13px}
+</style>
+</head>
+<body>
+
+<header>
+<div class="logo"><i class="fas fa-crown" style="color:#ffb703"></i> NEXUS <span>STORE</span></div>
+<div class="hr" id="hr"></div>
+</header>
+
+<nav>
+<a onclick="show('home')"><i class="fas fa-home"></i> Trang chủ</a>
+<a onclick="show('his')"><i class="fas fa-history"></i> Lịch sử</a>
+<a onclick="show('adm')" id="na" class="hd"><i class="fas fa-user-shield"></i> Admin</a>
+<a href="https://zalo.me/0933454413" target="_blank" style="color:#00b4d8"><i class="fas fa-phone"></i> 0933454413</a>
+</nav>
+
+<div class="banner"><h1>NEXUS GAMING STORE</h1><p style="color:#ccc;font-style:italic">Next Level Gaming</p></div>
+
+<div class="wrap">
+<div class="side">
+<div class="tt" style="font-size:12px">Danh mục</div>
+<div class="it on" onclick="tab('ff',this)"><i class="fab fa-free-code-camp"></i> Túi Mù FF</div>
+<div class="it" onclick="tab('lq',this)"><i class="fas fa-shield-alt"></i> Túi Mù LQ</div>
+<div class="it" onclick="alert('Dùng form nạp thẻ bên phải!')"><i class="fas fa-mobile-alt"></i> Nạp Thẻ</div>
+<div class="it" onclick="alert('Liên hệ Zalo 0933454413!')"><i class="fas fa-gem"></i> Nạp Game</div>
+</div>
+
+<div id="s-home"><div class="tt" id="pt"></div><div class="grid" id="pg"></div></div>
+
+<div id="s-his" class="hd"><div class="tt"><i class="fas fa-history"></i> Lịch Sử Giao Dịch</div>
+<table><thead><tr><th>Thời gian</th><th>Loại</th><th>Số tiền</th><th>Trạng thái</th></tr></thead><tbody id="hb"></tbody></table></div>
+
+<div id="s-adm" class="hd"><div class="tt"><i class="fas fa-user-shield"></i> Duyệt Thẻ Cào</div>
+<table><thead><tr><th>User</th><th>Loại</th><th>Mã</th><th>Seri</th><th>Giá</th><th>Hành động</th></tr></thead><tbody id="ab"></tbody></table></div>
+
+<div>
+<div class="tb"><div class="tt" style="font-size:12px"><i class="fas fa-gem"></i> Nạp Game</div>
+<input placeholder="Nhập ID..."><button class="btn bp" onclick="alert('Zalo 0933454413!')">NẠP NGAY</button></div>
+
+<div class="tb"><div class="tt" style="font-size:12px"><i class="fas fa-credit-card"></i> Nạp Thẻ</div>
+<select id="ct"><option>Viettel</option><option>Mobifone</option><option>Vinaphone</option><option>Garena</option></select>
+<select id="cv"><option value="10000">10K</option><option value="20000">20K</option><option value="50000">50K</option><option value="100000">100K</option><option value="200000">200K</option><option value="500000">500K</option></select>
+<input id="cs" placeholder="Seri..."><input id="cc" placeholder="Mã thẻ...">
+<button class="btn bp" onclick="send()">GỬI THẺ</button></div>
+</div>
+</div>
+
+<div class="mo" id="mo"><div class="mc">
+<span class="cl" onclick="cm()">&times;</span>
+<h3 style="text-align:center;margin-bottom:12px">ĐĂNG NHẬP</h3>
+<input id="le" placeholder="Email..."><input id="lp" type="password" placeholder="Mật khẩu...">
+<button class="btn bp" style="width:100%" onclick="login()">Đăng Nhập</button>
+</div></div>
+
+<footer>© 2026 Nexus Store | Zalo: <b class="gold">0933454413</b></footer>
+
+<script>
+let U=JSON.parse(localStorage.nx_u||'null')||[
+{e:'checongthanh33@gmail.com',p:'111111',b:999000000000,r:'admin'},
+{e:'khach@gmail.com',p:'123456',b:500000,r:'user'}];
+let T=JSON.parse(localStorage.nx_t||'[]');
+let P=JSON.parse(localStorage.nx_p||'[]');
+let C=localStorage.nx_c||'';
+let tab_='ff';
+
+const SP={ff:[
+{n:'Túi Mù FF 49K',p:49000,i:'fa-fire',f:['Skin ngẫu nhiên','Rank cao','BH 1 ngày']},
+{n:'Túi Mù FF 99K',p:99000,i:'fa-fire',f:['Skin xịn','Rank cao','BH 3 ngày']},
+{n:'Túi Mù FF 299K',p:299000,i:'fa-fire',f:['Nhiều skin VIP','Rank KC','BH 7 ngày']},
+{n:'Túi Mù FF 999K',p:999000,i:'fa-fire',f:['Full Skin','Rank CT','Vĩnh viễn']}],
+lq:[
+{n:'Túi Mù LQ 49K',p:49000,i:'fa-shield-alt',f:['Tướng random','Có skin','BH 1 ngày']},
+{n:'Túi Mù LQ 99K',p:99000,i:'fa-shield-alt',f:['Nhiều tướng','Skin xịn','BH 3 ngày']},
+{n:'Túi Mù LQ 299K',p:299000,i:'fa-shield-alt',f:['Full tướng','Rank CT','BH 7 ngày']},
+{n:'Túi Mù LQ 999K',p:999000,i:'fa-shield-alt',f:['Full Skin SSS','Rank TA','Vĩnh viễn']}]};
+
+const sv=()=>{localStorage.nx_u=JSON.stringify(U);localStorage.nx_t=JSON.stringify(T);localStorage.nx_p=JSON.stringify(P);localStorage.nx_c=C};
+const M=n=>n.toLocaleString('vi-VN')+'đ';
+
+function hr(){
+let h=document.getElementById('hr'),na=document.getElementById('na');
+if(C){let u=U.find(x=>x.e===C);
+h.innerHTML=`<div class="box"><i class="fas fa-user"></i> ${u.e.split('@')[0]}</div>
+<div class="box"><i class="fas fa-coins gold"></i> <span class="gold">${M(u.b)}</span></div>
+<button class="btn bd" onclick="logout()">Thoát</button>`;
+u.r==='admin'?na.classList.remove('hd'):na.classList.add('hd');
+}else{h.innerHTML=`<button class="btn bp" onclick="om()">Đăng Nhập</button>`;na.classList.add('hd');}}
+
+function pr(){
+document.getElementById('pt').innerHTML=tab_==='ff'?'<i class="fab fa-free-code-camp"></i> SHOP ACC FREE FIRE':'<i class="fas fa-shield-alt"></i> SHOP ACC LIÊN QUÂN';
+document.getElementById('pg').innerHTML=SP[tab_].map(p=>`
+<div class="card"><i class="fas ${p.i} ic"></i><div class="n">${p.n}</div><div class="p">${M(p.p)}</div>
+<ul>${p.f.map(x=>`<li><i class="fas fa-check"></i> ${x}</li>`).join('')}</ul>
+<button class="btn bp" style="width:100%" onclick="buy(${p.p},'${p.n}')">MUA NGAY</button></div>`).join('');}
+
+function hist(){
+let b=document.getElementById('hb');
+if(!C){b.innerHTML='<tr><td colspan=4 style="text-align:center">Đăng nhập để xem</td></tr>';return;}
+let m=T.filter(t=>t.e===C).reverse();
+b.innerHTML=m.length?m.map(t=>`<tr><td>${t.t}</td><td>${t.ty}</td>
+<td style="color:${t.a>0?'#2ec4b6':'#e63946'};font-weight:bold">${t.a>0?'+':''}${M(t.a)}</td>
+<td style="color:#2ec4b6">${t.s}</td></tr>`).join(''):'<tr><td colspan=4 style="text-align:center">Chưa có giao dịch</td></tr>';}
+
+function adm(){
+let b=document.getElementById('ab');
+b.innerHTML=P.length?P.map((c,i)=>`<tr><td>${c.e}</td><td>${c.ty}</td><td class="gold">${c.c}</td><td>${c.s}</td><td>${M(c.v)}</td>
+<td><button class="btn bp" style="padding:4px" onclick="ok(${i})">Duyệt</button>
+<button class="btn bd" style="padding:4px" onclick="no(${i})">Xóa</button></td></tr>`).join('')
+:'<tr><td colspan=6 style="text-align:center">Không có thẻ</td></tr>';}
+
+function show(s){
+['s-home','s-his','s-adm'].forEach(i=>document.getElementById(i).classList.add('hd'));
+if(s==='home')document.getElementById('s-home').classList.remove('hd');
+if(s==='his'){document.getElementById('s-his').classList.remove('hd');hist();}
+if(s==='adm'){
+if(!C||U.find(x=>x.e===C).r!=='admin'){alert('Không có quyền!');return;}
+document.getElementById('s-adm').classList.remove('hd');adm();}}
+
+function tab(t,el){tab_=t;document.querySelectorAll('.side .it').forEach(x=>x.classList.remove('on'));el.classList.add('on');pr();show('home');}
+
+function login(){
+let u=U.find(x=>x.e===document.getElementById('le').value&&x.p===document.getElementById('lp').value);
+if(u){C=u.e;sv();cm();hr();alert('Đăng nhập OK!');if(u.r==='admin')show('adm');}
+else alert('Sai tài khoản!');}
+
+function logout(){C='';sv();hr();show('home');}
+
+function buy(p,n){
+if(!C){alert('Đăng nhập trước!');om();return;}
+let i=U.findIndex(x=>x.e===C);
+if(U[i].b<p){alert('Không đủ tiền!');return;}
+if(confirm(`Mua ${n} giá ${M(p)}?`)){
+U[i].b-=p;T.push({e:C,ty:'Mua '+n,a:-p,s:'Thành công',t:new Date().toLocaleString('vi-VN')});
+sv();hr();hist();alert('Mua OK! Zalo 0933454413 nhận acc.');}}
+
+function send(){
+if(!C){alert('Đăng nhập trước!');om();return;}
+let ty=document.getElementById('ct').value,v=+document.getElementById('cv').value,
+s=document.getElementById('cs').value,c=document.getElementById('cc').value;
+if(!s||!c){alert('Nhập đủ Seri và Mã!');return;}
+P.push({e:C,ty,v,s,c});sv();
+document.getElementById('cs').value='';document.getElementById('cc').value='';
+alert('Gửi thẻ OK! Chờ Admin duyệt.');}
+
+function ok(i){let c=P[i],u=U.find(x=>x.e===c.e);
+if(u)u.b+=c.v;
+T.push({e:c.e,ty:'Nạp '+c.ty,a:c.v,s:'Thành công',t:new Date().toLocaleString('vi-VN')});
+P.splice(i,1);sv();adm();hr();alert('Đã duyệt!');}
+
+function no(i){if(confirm('Từ chối?')){P.splice(i,1);sv();adm();}}
+
+function om(){document.getElementById('mo').style.display='flex';}
+function cm(){document.getElementById('mo').style.display='none';}
+
+hr();pr();
+</script>
+</body>
+</html>
